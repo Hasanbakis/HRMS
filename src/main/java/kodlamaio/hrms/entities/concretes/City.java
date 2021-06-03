@@ -17,26 +17,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="cities")
 @Entity
-@Table(name="job_positions")
-@PrimaryKeyJoinColumn(name = "position_id", referencedColumnName = "id")
-//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobAdvertisement" })
-public class JobPosition {
+@PrimaryKeyJoinColumn(name = "city_id", referencedColumnName = "id")
+//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobAdvertisement"})
+public class City {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id;
+	private int cityId;
 	
-	@Column(name="position")
-	private String position;
+	@Column(name="name")
+	private String cityName;
 	
-	
-	//@OneToMany(mappedBy = "position")
-	//private  List<JobAdvertisement> jonAdvertisement;
+	//@OneToMany(mappedBy = "city")
+	//private List<JobAdvertisement> jobAdvertisement;
 
 }
