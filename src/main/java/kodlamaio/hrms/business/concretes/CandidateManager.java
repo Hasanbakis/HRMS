@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 
 
 import kodlamaio.hrms.business.abstracts.CandidateService;
+import kodlamaio.hrms.business.abstracts.EducationService;
+import kodlamaio.hrms.business.abstracts.ExperienceService;
+import kodlamaio.hrms.business.abstracts.ImageService;
+import kodlamaio.hrms.business.abstracts.LanguageService;
+import kodlamaio.hrms.business.abstracts.LinkService;
+import kodlamaio.hrms.business.abstracts.SkillService;
 import kodlamaio.hrms.business.abstracts.VerificationCodeService;
 import kodlamaio.hrms.core.utilities.adapters.MernisDemoService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
@@ -21,6 +27,7 @@ import kodlamaio.hrms.dataAccess.CandidateDoa;
 import kodlamaio.hrms.dataAccess.UserDao;
 import kodlamaio.hrms.entities.abstracts.User;
 import kodlamaio.hrms.entities.concretes.Candidate;
+import kodlamaio.hrms.entities.dtos.CvDto;
 
 
 @Service
@@ -30,18 +37,34 @@ public class CandidateManager implements CandidateService{
 	private UserDao userDao;
 	private VerificationCodeService verificationCodeService;
 	private MernisDemoService mernisDemoService;
-
-
-
+	private ExperienceService experienceService;
+	private EducationService educationService;
+	private SkillService skillService;
+	private LinkService linkService;
+	private LanguageService languageService;
+	private ImageService imageService;
+	
 	@Autowired
 	public CandidateManager(CandidateDoa candidateDao, UserDao userDao, VerificationCodeService verificationCodeService,
-			MernisDemoService mernisDemoService) {
+			MernisDemoService mernisDemoService, ExperienceService experienceService, EducationService educationService,
+			SkillService skillService, LinkService linkService, LanguageService languageService,ImageService imageService) {
 		super();
 		this.candidateDao = candidateDao;
 		this.userDao = userDao;
 		this.verificationCodeService = verificationCodeService;
 		this.mernisDemoService = mernisDemoService;
+		this.experienceService = experienceService;
+		this.educationService = educationService;
+		this.skillService = skillService;
+		this.linkService = linkService;
+		this.languageService = languageService;
+		this.imageService=imageService;
 	}
+
+
+
+	
+	
 
 	@Override
 	public DataResult<List<Candidate>> getAll() {
@@ -84,11 +107,29 @@ public class CandidateManager implements CandidateService{
 		}
 	}
 	
+	@Override
+	public DataResult<Candidate> getById(int id) {
+		return new SuccessDataResult<Candidate>(this.candidateDao.findById(id).get());
+	}
+	
+	
 	
 	private final String EMAIL_PATTERN = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+.(com|org|net|edu|gov|mil|biz|info|mobi)(.[A-Z]{2})?$";
 	private boolean isEmailValid(String email) {
 		Pattern pattern = Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 		return pattern.matcher(email).find();
+	}
+
+	@Override
+	public DataResult<CvDto> getCvById(int id) {
+		CvDto cvDto = new CvDto();
+		cvDto.setCandidate(this.getById(id).getData());
+		cvDto.setExperiences(this.experienceService.getByCandidateIdOrderByStartingDate(id).getData());
+		cvDto.setLanguages(this.languageService.getByCandidateId(id).getData());
+		cvDto.setEducations(this.educationService.getByCandidateId(id).getData());
+		cvDto.setLinks(this.linkService.getByCandidateId(id).getData());
+		cvDto.setImages(this.imageService.getByCandidateId(id).getData());
+		return new SuccessDataResult<>(cvDto);
 	}
 
 }
