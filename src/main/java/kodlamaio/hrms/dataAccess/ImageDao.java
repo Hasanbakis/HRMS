@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import kodlamaio.hrms.entities.concretes.Image;
 
 public interface ImageDao extends JpaRepository<Image, Integer>{
-	List<Image> getByCandidateId(int id);
+	  Image findByCvId(int id);
+	  List<Image> findByOrderById();
 
 }

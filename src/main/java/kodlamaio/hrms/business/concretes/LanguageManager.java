@@ -36,10 +36,7 @@ public class LanguageManager implements LanguageService{
 				"Language information sorted");
 	}
 
-	@Override
-	public DataResult<List<Language>> getByCandidateId(int id) {
-		return new SuccessDataResult<List<Language>>(this.languageDao.getByCandidateId(id), "Language listed");
-	}
+	
 
 	@Override
 	public Result addAll(List<Language> languages) {

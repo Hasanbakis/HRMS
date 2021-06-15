@@ -12,7 +12,7 @@ public interface ExperienceService {
 	public DataResult<List<Experience>> getAll();
 	public Result add(Experience experience);
 	Result addAll(List<Experience> experiences);
-	DataResult<List<Experience>> getByCandidateIdOrderByStartingDate(int id);
+	
 	
 
 }

@@ -35,23 +35,6 @@ public class Candidate extends User{
 	@Column(name="birth_date")
 	private LocalDate birthDate;
 	
-	@OneToMany(mappedBy = "candidate")
-	private List<Image> images;
 	
-	@OneToMany(mappedBy = "candidate")
-	private List<Language> languages;
-	
-	@OneToMany(mappedBy = "candidate")
-	private List<Education> educations;
-	
-	@OneToMany(mappedBy = "candidate")
-	private List<Skill> skills;
-	
-	@OneToMany(mappedBy = "candidate")
-	private List<Link> links;
-	
-
-	@OneToMany(mappedBy = "candidate")
-	private List<Experience> experiences;
 
 }

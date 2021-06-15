@@ -37,10 +37,7 @@ public class EducationManager implements EducationService {
 		return new SuccessResult("Education information added");
 	}
 
-	@Override
-	public DataResult<List<Education>> getByCandidateId(int id) {
-		return new SuccessDataResult<List<Education>>(this.educationDao.getByCandidateId(id), "Education listed");
-	}
+	
 
 	@Override
 	public Result addAll(List<Education> educations) {

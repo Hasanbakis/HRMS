@@ -12,5 +12,6 @@ import kodlamaio.hrms.entities.concretes.Image;
 
 public interface ImageService {
 	Result add(Image image,MultipartFile imageFile);
-	DataResult<List<Image>> getByCandidateId(int id);
+	DataResult<List<Image>> getAll();
+	DataResult<Image> getById(int id);
 }

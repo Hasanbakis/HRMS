@@ -14,6 +14,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Table(name="cv_images")
 @NoArgsConstructor
 @AllArgsConstructor
-
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","cv"})
 public class Image {
 	
 	@Id
@@ -39,17 +40,11 @@ public class Image {
 	@Column(name = "name")
 	private String  name;
 	
-	@Column(name="created_date", columnDefinition = "Date defult CURRENT_DATE")
-	private LocalDate createdDate = LocalDate.now();
 
-	@ManyToOne()
-	@JsonIgnore()
-	@JoinColumn(name="candidate_id")
-	private Candidate candidate;
+	@ManyToOne
+	@JsonIgnore
+    @JoinColumn(name = "cv_id")
+    private Cv cv;
 	
-//	@ManyToOne()
-//	@JsonIgnore()
-//	@JoinColumn(name="candidate_id")
-//	private Cv cv;
 
 }

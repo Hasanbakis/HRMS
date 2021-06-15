@@ -12,7 +12,7 @@ import kodlamaio.hrms.entities.concretes.Link;
 public interface LinkService {
 	public DataResult<List<Link>> getAll();
 	public Result add(Link link);
-	DataResult<List<Link>> getByCandidateId(int id);
+
 	Result addAll(List<Link> links);
 
 }

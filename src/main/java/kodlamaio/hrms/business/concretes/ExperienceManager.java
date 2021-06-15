@@ -38,10 +38,7 @@ public class ExperienceManager implements ExperienceService{
 		return new SuccessResult("Experience information added");
 	}
 
-	@Override
-	public DataResult<List<Experience>> getByCandidateIdOrderByStartingDate(int id) {
-		return new SuccessDataResult<List<Experience>>(this.experienceDao.getByCandidateIdOrderByStartingDate(id),"Experience listed");
-	}
+	
 
 	@Override
 	public Result addAll(List<Experience> experiences) {

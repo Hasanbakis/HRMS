@@ -5,6 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import kodlamaio.hrms.entities.concretes.Candidate;
+import kodlamaio.hrms.entities.concretes.Cv;
 import kodlamaio.hrms.entities.concretes.Education;
 import kodlamaio.hrms.entities.concretes.Experience;
 import kodlamaio.hrms.entities.concretes.Image;
@@ -20,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CvDto {
 	@JsonIgnore()
-	private Candidate candidate;
+	private Cv cv;
 	private List<Experience> experiences;
 	private List<Language> languages;
 	private List<Skill> skills;

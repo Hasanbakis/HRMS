@@ -30,10 +30,10 @@ public class Skill {
 	@Column(name="skill")
 	private String skill;
 	
-	@ManyToOne()
-	@JoinColumn(name="candidate_id")
-	@JsonIgnore()
-	private Candidate candidate;
+	@ManyToOne
+	@JsonIgnore
+    @JoinColumn(name = "cv_id")
+    private Cv cv;
 	
 
 	

@@ -40,10 +40,11 @@ public class Experience {
 	@Column(name="ending_date")
 	private LocalDate endingDate;
 	
-	@ManyToOne()
-	@JsonIgnore()
-	@JoinColumn(name="candidate_id")
-	private Candidate candidate;
+
+	@ManyToOne
+	@JsonIgnore
+    @JoinColumn(name = "cv_id")
+    private Cv cv;
 	
 	
 	@ManyToOne

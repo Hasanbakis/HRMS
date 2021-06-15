@@ -34,10 +34,11 @@ public class ImagesController {
 	public Result add(@RequestParam(value="id")int id,@RequestParam(value="imageFile")MultipartFile imageFile) {
 			Candidate candidate=this.candidateService.getById(id).getData();
 			Image image =new Image();
-			image.setCandidate(candidate);
+			
 			return this.imageService.add(image, imageFile);
 	}
 
+	
 	
 	
 

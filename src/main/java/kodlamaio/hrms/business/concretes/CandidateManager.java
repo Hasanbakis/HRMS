@@ -120,16 +120,6 @@ public class CandidateManager implements CandidateService{
 		return pattern.matcher(email).find();
 	}
 
-	@Override
-	public DataResult<CvDto> getCvById(int id) {
-		CvDto cvDto = new CvDto();
-		cvDto.setCandidate(this.getById(id).getData());
-		cvDto.setExperiences(this.experienceService.getByCandidateIdOrderByStartingDate(id).getData());
-		cvDto.setLanguages(this.languageService.getByCandidateId(id).getData());
-		cvDto.setEducations(this.educationService.getByCandidateId(id).getData());
-		cvDto.setLinks(this.linkService.getByCandidateId(id).getData());
-		cvDto.setImages(this.imageService.getByCandidateId(id).getData());
-		return new SuccessDataResult<>(cvDto);
-	}
+	
 
 }

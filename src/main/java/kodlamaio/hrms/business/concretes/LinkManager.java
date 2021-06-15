@@ -38,10 +38,7 @@ public class LinkManager implements LinkService{
 		return new SuccessResult("Link information added");
 	}
 
-	@Override
-	public DataResult<List<Link>> getByCandidateId(int id) {
-		return new SuccessDataResult<List<Link>>(this.linkDao.getByCandidateId(id), "Link listed");
-	}
+
 
 	@Override
 	public Result addAll(List<Link> links) {

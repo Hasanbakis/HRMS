@@ -39,11 +39,20 @@ public class ImageManager implements ImageService{
 		return new SuccessResult("The picture successfully added");
 	}
 
+	@Override
+	public DataResult<List<Image>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
-	public DataResult<List<Image>> getByCandidateId(int id) {
-		return new SuccessDataResult<List<Image>>(this.imageDao.getByCandidateId(id),"Foto listelendi");
+	public DataResult<Image> getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+
+	
 
 	
 

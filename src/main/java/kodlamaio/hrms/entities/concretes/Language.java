@@ -33,11 +33,10 @@ public class Language {
 	@Column(name="language_level")
 	private int languageLevel;
 	
-	@ManyToOne()
-	@JsonIgnore()
-	@JoinColumn(name="candidate_id")
-	private Candidate candidate;
-
+	@ManyToOne
+	@JsonIgnore
+    @JoinColumn(name = "cv_id")
+    private Cv cv;
 
 	
 

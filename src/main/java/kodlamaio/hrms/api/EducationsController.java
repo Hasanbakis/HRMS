@@ -38,9 +38,5 @@ public class EducationsController {
 		return this.educationService.add(education);
 	}
 	
-	@GetMapping("/getById")
-	public DataResult<List<Education>> getByCandidateId(int id){
-		return this.educationService.getByCandidateId(id);
-	}
 
 }

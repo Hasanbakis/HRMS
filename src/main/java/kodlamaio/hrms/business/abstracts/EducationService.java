@@ -10,7 +10,7 @@ import kodlamaio.hrms.entities.concretes.Language;
 public interface EducationService {
 	public DataResult<List<Education>> getAll();
 	public Result add(Education education);
-	DataResult<List<Education>> getByCandidateId(int id);
+	
 	Result addAll(List<Education> educations);
 	
 

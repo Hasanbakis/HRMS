@@ -34,9 +34,9 @@ public class Link {
 	@Column(name="github_link")
 	private String githubLink;
 	
-	@ManyToOne()
-	@JsonIgnore()
-	@JoinColumn(name="candidate_id")
-	private Candidate candidate;
+	@ManyToOne
+	@JsonIgnore
+    @JoinColumn(name = "cv_id")
+    private Cv cv;
 
 }

@@ -43,9 +43,9 @@ public class Education {
 	private LocalDate graduationDate;
 	
 	@ManyToOne
-	@JoinColumn(name="candidate_id")
-	@JsonIgnore()
-	private Candidate candidate;
+	@JsonIgnore
+    @JoinColumn(name = "cv_id")
+    private Cv cv;
 	
 	
 
