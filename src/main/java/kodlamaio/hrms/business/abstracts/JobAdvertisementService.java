@@ -17,6 +17,8 @@ public interface JobAdvertisementService {
 	 
 	  DataResult<List<JobAdvertisement>> findAllByStatusTrueSortedAsc();
 	  
+	  DataResult <JobAdvertisement>findByIdAndStatusTrue(int id);
+	  
 	  
 		
 

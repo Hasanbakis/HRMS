@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @EqualsAndHashCode(callSuper = false)
 @Table(name="employers")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class Employer extends User{
 	
 	@Column(name="company_name")

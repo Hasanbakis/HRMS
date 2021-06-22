@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import kodlamaio.hrms.business.abstracts.EmployerService;
 import kodlamaio.hrms.business.abstracts.VerificationCodeService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.ErrorDataResult;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
@@ -81,6 +82,14 @@ public class EmployerManager implements EmployerService{
 		return true;
 			
 	}
+	
+	  @Override
+	    public DataResult<Employer> getById(int id) {
+	        if(!this.employerDao.existsById(id)){
+	            return new ErrorDataResult<Employer>("There is no such employer");
+	        }
+	        return new SuccessDataResult<Employer>(this.employerDao.getById(id),"Employer listed");
+	    }
 		
 	
 	

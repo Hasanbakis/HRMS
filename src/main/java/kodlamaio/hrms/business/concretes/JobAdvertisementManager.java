@@ -77,6 +77,18 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 				"Active job postings of the company are listed");
 	}
 
+	@Override
+	public DataResult<JobAdvertisement> findByIdAndStatusTrue(int id) {
+		if(!this.jobAdvertisementDao.existsById(id)) {
+			return new ErrorDataResult<JobAdvertisement>
+			("There is no such post or it is inactive");
+		}
+		return new SuccessDataResult<JobAdvertisement>
+		(this.jobAdvertisementDao.findByIdAndStatusTrue(id),
+				"Active job posting of the company are listed");
+	}
+
+	
 
 	
 	

@@ -1,6 +1,7 @@
 package kodlamaio.hrms.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import kodlamaio.hrms.entities.concretes.Image;
 
 @RestController
 @RequestMapping("/api/images")
+@CrossOrigin
 public class ImagesController {
 	private ImageService imageService;
 	private CandidateService candidateService;

@@ -45,8 +45,8 @@ public class JobAdvertisementsController {
 		return this.jobAdvertisementService.findAllByStatusTrueSortedAsc();
 	}
 	
-	@GetMapping("getByEmployerId")
-	public DataResult<List<JobAdvertisement>> getByEmployerId(int employer_id){
+	@GetMapping("getAllByEmployerId")
+	public DataResult<List<JobAdvertisement>> getByAllEmployerId(int employer_id){
 		return this.jobAdvertisementService.findAllByEmployer_IdAndStatusTrue(employer_id);
 	}
 	
@@ -55,6 +55,10 @@ public class JobAdvertisementsController {
 		return this.jobAdvertisementService.findByIdToChangeStatus(jobPostId, status);
 	}
 	
+	@GetMapping("getById")
+	public DataResult<JobAdvertisement> getByAdvertisementId(int id){
+		return this.jobAdvertisementService.findByIdAndStatusTrue(id);
+	}
 	
 	
 	
